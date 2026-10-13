@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zoha — UI/UX Designer</title>
+  <meta name="description" content="Zoha is a UI/UX designer turning complex ideas into simple, intuitive, and meaningful digital experiences. Explore selected design concepts, process, and toolkit.">
+  <meta name="theme-color" content="#F6F4EE">
+  <meta name="author" content="Zoha">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Zoha — UI/UX Designer">
+  <meta property="og:description" content="Designing digital experiences that feel effortless. Selected work, process, and toolkit of UI/UX designer Zoha.">
+
+  <!-- Text-based SVG favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161816'/%3E%3Ctext x='15' y='45' font-family='Arial,sans-serif' font-weight='700' font-size='36' fill='%23F6F4EE'%3Ez%3C/text%3E%3Ccircle cx='46' cy='41' r='5' fill='%23B9D46A'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Enables reveal animations only when JS is running, so content is never hidden without it -->
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a href="#home" class="wordmark" aria-label="zoha. — back to top">zoha<span class="wordmark-dot">.</span></a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <span class="availability"><span class="availability-dot" aria-hidden="true"></span>Available for select projects</span>
+        <a href="#contact" class="btn btn-dark btn-sm nav-cta">Let's Talk</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="menu-toggle-line"></span>
+          <span class="menu-toggle-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <ul class="mobile-menu-links" role="list">
+        <li><a href="#home"><span>01</span>Home</a></li>
+        <li><a href="#about"><span>02</span>About</a></li>
+        <li><a href="#work"><span>03</span>Work</a></li>
+        <li><a href="#skills"><span>04</span>Skills</a></li>
+        <li><a href="#contact"><span>05</span>Contact</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <span class="availability"><span class="availability-dot" aria-hidden="true"></span>Available for select projects</span>
+        <a href="#contact" class="btn btn-dark">Let's Talk</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-anim" style="--d:0">UI/UX Designer <span aria-hidden="true">·</span> Digital Experiences</p>
+          <h1 class="hero-title" id="hero-title">
+            <span class="line"><span class="hero-anim" style="--d:1">Designing digital</span></span>
+            <span class="line"><span class="hero-anim" style="--d:2">experiences that</span></span>
+            <span class="line"><span class="hero-anim" style="--d:3">feel <em class="highlight">effortless.</em></span></span>
+          </h1>
+          <p class="hero-lead hero-anim" style="--d:4">Hi, I'm Zoha — a UI/UX designer passionate about turning complex ideas into simple, intuitive, and meaningful digital experiences.</p>
+          <div class="hero-ctas hero-anim" style="--d:5">
+            <a href="#work" class="btn btn-dark">
+              Explore My Work
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost">Let's Connect</a>
+          </div>
+        </div>
+
+        <!-- Decorative UI composition -->
+        <div class="hero-visual hero-anim" style="--d:3" aria-hidden="true">
+          <div class="hero-canvas" data-parallax>
+            <div class="canvas-grid"></div>
+
+            <!-- Dashboard window -->
+            <div class="mock-window mock-dash" data-depth="0.4">
+              <div class="window-bar"><i></i><i></i><i></i><span class="window-url">finora.app/overview</span></div>
+              <div class="dash">
+                <aside class="dash-side">
+                  <span class="dash-logo"></span>
+                  <span class="dash-ico is-active"></span>
+                  <span class="dash-ico"></span>
+                  <span class="dash-ico"></span>
+                  <span class="dash-ico"></span>
+                </aside>
+                <div class="dash-main">
+                  <div class="dash-head">
+                    <div>
+                      <span class="t-xs muted-t">Good morning</span>
+                      <strong class="t-sm">Overview</strong>
+                    </div>
+                    <span class="dash-avatar"></span>
+                  </div>
+                  <div class="dash-stats">
+                    <div class="stat is-accent"><span class="t-xxs">Balance</span><strong>$24,560</strong><span class="spark"></span></div>
+                    <div class="stat"><span class="t-xxs">Income</span><strong>$8,240</strong><span class="bar-mini"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:85%"></i></span></div>
+                    <div class="stat"><span class="t-xxs">Spending</span><strong>$3,120</strong><span class="bar-mini"><i style="--h:60%"></i><i style="--h:35%"></i><i style="--h:50%"></i><i style="--h:30%"></i></span></div>
+                  </div>
+                  <div class="dash-chart">
+                    <div class="chart-head"><span class="t-xs">Cash flow</span><span class="chip-sm">Monthly</span></div>
+                    <svg viewBox="0 0 300 90" preserveAspectRatio="none">
+                      <path class="chart-area" d="M0 70 C30 62 45 40 75 45 S120 66 150 50 S200 18 230 26 S275 40 300 14 V90 H0Z"/>
+                      <path class="chart-line" d="M0 70 C30 62 45 40 75 45 S120 66 150 50 S200 18 230 26 S275 40 300 14"/>
+                      <circle class="chart-dot" cx="230" cy="26" r="4"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="mock-phone hero-phone" data-depth="0.9">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <span class="t-xxs muted-t">Tuesday</span>
+                <strong class="t-sm">Your day</strong>
+                <div class="ring">
+                  <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-track"/><circle cx="40" cy="40" r="32" class="ring-fill" style="--p:68"/></svg>
+                  <span class="ring-label"><strong>68%</strong><small>done</small></span>
+                </div>
+                <ul class="task-list">
+                  <li class="is-done"><i></i>Morning walk</li>
+                  <li class="is-done"><i></i>Read 10 pages</li>
+                  <li><i></i>Plan the week</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Floating design details -->
+            <div class="float-chip chip-layout" data-depth="1.3">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+              Auto layout · 24px
+            </div>
+            <div class="float-palette" data-depth="1.1">
+              <span style="--c:#161816"></span><span style="--c:#4F6B3A"></span><span style="--c:#B9D46A"></span><span style="--c:#E3E0D6"></span>
+            </div>
+            <div class="float-cursor" data-depth="1.6">
+              <svg viewBox="0 0 24 24"><path d="M4 3l7 17 2.5-7.5L21 10z"/></svg>
+              <span>Zoha</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#work" class="scroll-indicator" aria-label="Scroll to selected work">
+        <span class="scroll-line" aria-hidden="true"></span>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ============ SELECTED WORK ============ -->
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-index reveal">(01) — Work</p>
+            <h2 class="section-title reveal" id="work-title">Selected Work</h2>
+          </div>
+          <p class="section-intro reveal">A selection of digital experiences focused on clarity, usability, and thoughtful design.</p>
+        </header>
+
+        <div class="projects">
+
+          <!-- Project 01 -->
+          <article class="project project-wide reveal" data-project="finora">
+            <div class="project-preview preview-finora" aria-hidden="true">
+              <div class="mock-window pv-window">
+                <div class="window-bar"><i></i><i></i><i></i><span class="window-url">finora.app/dashboard</span></div>
+                <div class="fin">
+                  <aside class="fin-side">
+                    <span class="fin-brand"><b></b>Finora</span>
+                    <span class="fin-nav is-active">Overview</span>
+                    <span class="fin-nav">Accounts</span>
+                    <span class="fin-nav">Payments</span>
+                    <span class="fin-nav">Budgets</span>
+                    <span class="fin-nav">Reports</span>
+                  </aside>
+                  <div class="fin-main">
+                    <div class="fin-top">
+                      <strong>Overview</strong>
+                      <span class="fin-search">Search transactions</span>
+                    </div>
+                    <div class="fin-cards">
+                      <div class="fin-card is-dark"><span>Total balance</span><strong>$48,290.00</strong><small>Main · Savings · Card</small></div>
+                      <div class="fin-card"><span>Monthly income</span><strong>$9,420.00</strong><span class="fin-pill up">Steady</span></div>
+                      <div class="fin-card"><span>Monthly spend</span><strong>$4,180.00</strong><span class="fin-pill">Within budget</span></div>
+                    </div>
+                    <div class="fin-row">
+                      <div class="fin-chart">
+                        <div class="chart-head"><span>Income vs. spending</span><span class="chip-sm">6 months</span></div>
+                        <div class="bars">
+                          <i style="--a:55%;--b:35%"></i><i style="--a:62%;--b:40%"></i><i style="--a:48%;--b:30%"></i>
+                          <i style="--a:75%;--b:45%"></i><i style="--a:68%;--b:38%"></i><i style="--a:82%;--b:42%"></i>
+                        </div>
+                      </div>
+                      <div class="fin-tx">
+                        <span class="fin-tx-title">Recent</span>
+                        <div class="tx"><b></b><span>Groceries</span><em>-$84</em></div>
+                        <div class="tx"><b></b><span>Salary</span><em class="pos">+$4,710</em></div>
+                        <div class="tx"><b></b><span>Utilities</span><em>-$126</em></div>
+                        <div class="tx"><b></b><span>Transfer</span><em>-$300</em></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">01</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Dashboard UI/UX Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Finora Dashboard</h3>
+                <p class="project-desc">A clean financial dashboard concept designed to simplify complex information through clear data visualization and intuitive navigation.</p>
+              </div>
+              <button class="project-open" type="button" data-open="finora">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project reveal" data-project="bloom">
+            <div class="project-preview preview-bloom" aria-hidden="true">
+              <div class="mock-phone pv-phone pv-phone-a">
+                <div class="phone-notch"></div>
+                <div class="phone-screen bloom">
+                  <div class="bloom-top"><span class="t-xxs muted-t">Good morning</span><span class="bloom-av"></span></div>
+                  <strong class="bloom-h">Small steps,<br>every day.</strong>
+                  <div class="bloom-progress">
+                    <div class="ring sm">
+                      <svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" class="ring-track"/><circle cx="40" cy="40" r="32" class="ring-fill" style="--p:60"/></svg>
+                      <span class="ring-label"><strong>3/5</strong></span>
+                    </div>
+                    <div><strong class="t-xs">Daily progress</strong><span class="t-xxs muted-t">2 habits left</span></div>
+                  </div>
+                  <div class="bloom-days"><i>M</i><i class="on">T</i><i class="on">W</i><i class="today">T</i><i>F</i><i>S</i><i>S</i></div>
+                </div>
+              </div>
+              <div class="mock-phone pv-phone pv-phone-b">
+                <div class="phone-notch"></div>
+                <div class="phone-screen bloom">
+                  <strong class="t-sm">Today's routine</strong>
+                  <div class="bloom-task done"><i></i><span>Drink water<small>8 glasses</small></span></div>
+                  <div class="bloom-task done"><i></i><span>Stretch<small>10 min</small></span></div>
+                  <div class="bloom-task done"><i></i><span>Journal<small>Evening</small></span></div>
+                  <div class="bloom-task"><i></i><span>Walk outside<small>20 min</small></span></div>
+                  <div class="bloom-task"><i></i><span>No screens<small>After 10 pm</small></span></div>
+                  <span class="bloom-fab">+</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">02</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Mobile App Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Bloom Mobile App</h3>
+                <p class="project-desc">A simple and engaging mobile experience focused on helping users organize daily routines and build better habits.</p>
+              </div>
+              <button class="project-open" type="button" data-open="bloom">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project reveal" data-project="studio">
+            <div class="project-preview preview-studio" aria-hidden="true">
+              <div class="mock-window pv-window studio-window">
+                <div class="window-bar"><i></i><i></i><i></i><span class="window-url">studiodigital.co</span></div>
+                <div class="studio">
+                  <div class="studio-nav"><b>Studio&nbsp;Digital</b><span>Work</span><span>Studio</span><span>Journal</span><span class="studio-btn">Contact</span></div>
+                  <div class="studio-hero">
+                    <span class="studio-kicker">Independent design studio</span>
+                    <strong>We shape<br>brands with <em>intent.</em></strong>
+                  </div>
+                  <div class="studio-grid">
+                    <div class="studio-img img-a"><span>Identity</span></div>
+                    <div class="studio-img img-b"><span>Web</span></div>
+                    <div class="studio-img img-c"><span>Product</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">03</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Website UI/UX Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Studio Digital Website</h3>
+                <p class="project-desc">A refined website concept for a creative studio, combining strong typography, elegant layouts, and a clear user journey.</p>
+              </div>
+              <button class="project-open" type="button" data-open="studio">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <p class="work-note reveal">All projects shown are self-initiated design concepts created to explore interface and experience design.</p>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-visual reveal" aria-hidden="true">
+          <div class="about-board">
+            <div class="board-label">Frame · About</div>
+            <div class="wire wire-a"><span></span><span></span><span class="short"></span></div>
+            <div class="wire wire-b"><div class="wire-img"></div><span></span><span class="short"></span></div>
+            <div class="type-card"><span class="type-aa">Aa</span><span class="type-meta">Plus Jakarta Sans<br>Bold · 64 / 72</span></div>
+            <div class="circle-accent"></div>
+            <div class="flow">
+              <span class="flow-node">Need</span>
+              <span class="flow-arrow"></span>
+              <span class="flow-node">Idea</span>
+              <span class="flow-arrow"></span>
+              <span class="flow-node is-accent">Experience</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <p class="section-index reveal">(02) — About</p>
+          <h2 class="section-title reveal" id="about-title">A little about me</h2>
+          <p class="about-lead reveal">I'm Zoha, a UI/UX designer who enjoys understanding how people interact with digital products. I focus on creating interfaces that are visually balanced, easy to navigate, and built around real user needs.</p>
+          <p class="reveal">My approach combines user research, thoughtful wireframing, interactive prototyping, and usability-focused design to turn ideas into meaningful digital experiences.</p>
+
+          <ol class="principles" role="list">
+            <li class="reveal"><span class="principle-num">i.</span><span class="principle-name">People first</span></li>
+            <li class="reveal"><span class="principle-num">ii.</span><span class="principle-name">Simplicity matters</span></li>
+            <li class="reveal"><span class="principle-num">iii.</span><span class="principle-name">Every detail has a purpose</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-index reveal">(03) — Skills</p>
+            <h2 class="section-title reveal" id="skills-title">Skills &amp; Toolkit</h2>
+          </div>
+          <p class="section-intro reveal">The craft I bring to each project, from first question to final pixel.</p>
+        </header>
+
+        <div class="skill-groups">
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title"><span>A</span>UI/UX Design</h3>
+            <ul role="list">
+              <li>Figma</li>
+              <li>Wireframing</li>
+              <li>Prototyping</li>
+              <li>Interface Design</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title"><span>B</span>Research &amp; Testing</h3>
+            <ul role="list">
+              <li>User Research</li>
+              <li>Usability Testing</li>
+              <li>User Flows</li>
+              <li>Information Architecture</li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-title"><span>C</span>Visual Design</h3>
+            <ul role="list">
+              <li>Graphic Design</li>
+              <li>Canva</li>
+              <li>Typography</li>
+              <li>Layout and Composition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="supporting reveal">
+          <h3 class="supporting-title">Supporting skills</h3>
+          <ul class="supporting-list" role="list">
+            <li>Data Analysis &amp; Visualization</li>
+            <li>Python &amp; Basic Data Science</li>
+            <li>Microsoft Word</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Communication &amp; Teamwork</li>
+            <li>Problem Solving &amp; Creativity</li>
+            <li>Time Management</li>
+            <li>Research &amp; Data Collection</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="section-index reveal">(04) — Process</p>
+            <h2 class="section-title reveal" id="process-title">From idea to experience</h2>
+          </div>
+        </header>
+
+        <ol class="steps" role="list">
+          <li class="step reveal">
+            <span class="step-marker" aria-hidden="true"></span>
+            <span class="step-num">01</span>
+            <h3 class="step-title">Discover</h3>
+            <p>Understand the users, their goals, the problem, and the project requirements.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-marker" aria-hidden="true"></span>
+            <span class="step-num">02</span>
+            <h3 class="step-title">Define</h3>
+            <p>Organize insights, identify priorities, and establish a clear user journey.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-marker" aria-hidden="true"></span>
+            <span class="step-num">03</span>
+            <h3 class="step-title">Design</h3>
+            <p>Develop wireframes, create visual interfaces, and build interactive prototypes.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-marker" aria-hidden="true"></span>
+            <span class="step-num">04</span>
+            <h3 class="step-title">Refine</h3>
+            <p>Review usability, gather feedback, and improve the experience through iteration.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-copy">
+            <p class="section-index on-dark reveal">(05) — Contact</p>
+            <h2 class="contact-title reveal" id="contact-title">Have an idea? <span>Let's make it happen.</span></h2>
+            <p class="contact-text reveal">I'm always interested in thoughtful projects, creative collaborations, and opportunities to build better digital experiences.</p>
+
+            <a class="contact-email reveal" data-config="email" href="#contact">
+              <span data-config-text="email">hello@example.com</span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+
+            <ul class="socials reveal" role="list">
+              <li><a data-config="linkedin" href="#contact" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              <li><a data-config="behance" href="#contact" target="_blank" rel="noopener noreferrer">Behance</a></li>
+              <li><a data-config="dribbble" href="#contact" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
+            </ul>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="field">
+              <label for="cf-name">Your name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" required aria-describedby="cf-name-error">
+              <span class="field-error" id="cf-name-error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="cf-email">Email address</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" required aria-describedby="cf-email-error">
+              <span class="field-error" id="cf-email-error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label for="cf-message">Tell me about your project</label>
+              <textarea id="cf-message" name="message" rows="4" required aria-describedby="cf-message-error"></textarea>
+              <span class="field-error" id="cf-message-error" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn btn-lime btn-block">
+              Start a conversation
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <p class="closing-line reveal">Let's create something meaningful.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#home" class="wordmark">zoha<span class="wordmark-dot">.</span></a>
+        <span>UI/UX Designer</span>
+      </div>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Zoha. All rights reserved.</p>
+      <a href="#home" class="back-top-link">
+        Back to top
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Floating scroll-to-top -->
+  <button class="to-top" id="to-top" type="button" aria-label="Scroll back to top">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <!-- ============ PROJECT MODAL ============ -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal-inner">
+      <header class="modal-head">
+        <div>
+          <div class="project-tags"><span id="modal-category"></span><span class="tag-concept">Design concept</span></div>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
+        <button class="modal-close" type="button" aria-label="Close case study">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </header>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </dialog>
+</body>
+</html>
