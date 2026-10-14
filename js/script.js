@@ -7,10 +7,11 @@
    Leave a value as "" to hide that link on the page.
    -------------------------------------------------------------------------- */
 const CONFIG = {
-  email: "zoha32337@gmail.com",
+  email: "alizoha646@gmail.com",
   linkedin: "https://www.linkedin.com/in/your-profile",
   behance: "https://www.behance.net/your-profile",
   dribbble: "",                                     // empty = hidden
+  location: "Gilgit, Pakistan",
 };
 
 /* --------------------------------------------------------------------------

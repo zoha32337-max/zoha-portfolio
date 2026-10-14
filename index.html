@@ -90,49 +90,27 @@
           </div>
         </div>
 
-        <!-- Decorative UI composition -->
-        <div class="hero-visual hero-anim" style="--d:3" aria-hidden="true">
+        <!-- Portrait with surrounding design elements -->
+        <div class="hero-visual hero-anim" style="--d:3">
           <div class="hero-canvas" data-parallax>
-            <div class="canvas-grid"></div>
+            <div class="canvas-grid" aria-hidden="true"></div>
 
-            <!-- Dashboard window -->
-            <div class="mock-window mock-dash" data-depth="0.4">
-              <div class="window-bar"><i></i><i></i><i></i><span class="window-url">finora.app/overview</span></div>
-              <div class="dash">
-                <aside class="dash-side">
-                  <span class="dash-logo"></span>
-                  <span class="dash-ico is-active"></span>
-                  <span class="dash-ico"></span>
-                  <span class="dash-ico"></span>
-                  <span class="dash-ico"></span>
-                </aside>
-                <div class="dash-main">
-                  <div class="dash-head">
-                    <div>
-                      <span class="t-xs muted-t">Good morning</span>
-                      <strong class="t-sm">Overview</strong>
-                    </div>
-                    <span class="dash-avatar"></span>
-                  </div>
-                  <div class="dash-stats">
-                    <div class="stat is-accent"><span class="t-xxs">Balance</span><strong>$24,560</strong><span class="spark"></span></div>
-                    <div class="stat"><span class="t-xxs">Income</span><strong>$8,240</strong><span class="bar-mini"><i style="--h:40%"></i><i style="--h:70%"></i><i style="--h:55%"></i><i style="--h:85%"></i></span></div>
-                    <div class="stat"><span class="t-xxs">Spending</span><strong>$3,120</strong><span class="bar-mini"><i style="--h:60%"></i><i style="--h:35%"></i><i style="--h:50%"></i><i style="--h:30%"></i></span></div>
-                  </div>
-                  <div class="dash-chart">
-                    <div class="chart-head"><span class="t-xs">Cash flow</span><span class="chip-sm">Monthly</span></div>
-                    <svg viewBox="0 0 300 90" preserveAspectRatio="none">
-                      <path class="chart-area" d="M0 70 C30 62 45 40 75 45 S120 66 150 50 S200 18 230 26 S275 40 300 14 V90 H0Z"/>
-                      <path class="chart-line" d="M0 70 C30 62 45 40 75 45 S120 66 150 50 S200 18 230 26 S275 40 300 14"/>
-                      <circle class="chart-dot" cx="230" cy="26" r="4"/>
-                    </svg>
-                  </div>
-                </div>
+            <!-- Portrait, framed like a selected Figma layer -->
+            <figure class="hero-portrait" data-depth="0.3">
+              <span class="portrait-label" aria-hidden="true">Frame · Zoha</span>
+              <div class="portrait-frame">
+                <picture>
+                  <source srcset="assets/images/zoha.webp" type="image/webp">
+                  <img src="assets/images/zoha.jpg" width="720" height="850" fetchpriority="high" decoding="async" alt="Portrait of Zoha, smiling, wearing a white hijab and a navy knit cardigan">
+                </picture>
+                <span class="handle h-tl" aria-hidden="true"></span><span class="handle h-tr" aria-hidden="true"></span>
+                <span class="handle h-bl" aria-hidden="true"></span><span class="handle h-br" aria-hidden="true"></span>
+                <span class="portrait-size" aria-hidden="true">720 × 850</span>
               </div>
-            </div>
+            </figure>
 
             <!-- Phone -->
-            <div class="mock-phone hero-phone" data-depth="0.9">
+            <div class="mock-phone hero-phone" data-depth="0.9" aria-hidden="true">
               <div class="phone-notch"></div>
               <div class="phone-screen">
                 <span class="t-xxs muted-t">Tuesday</span>
@@ -150,14 +128,14 @@
             </div>
 
             <!-- Floating design details -->
-            <div class="float-chip chip-layout" data-depth="1.3">
+            <div class="float-chip chip-layout" data-depth="1.3" aria-hidden="true">
               <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
               Auto layout · 24px
             </div>
-            <div class="float-palette" data-depth="1.1">
+            <div class="float-palette" data-depth="1.1" aria-hidden="true">
               <span style="--c:#161816"></span><span style="--c:#4F6B3A"></span><span style="--c:#B9D46A"></span><span style="--c:#E3E0D6"></span>
             </div>
-            <div class="float-cursor" data-depth="1.6">
+            <div class="float-cursor" data-depth="1.6" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 3l7 17 2.5-7.5L21 10z"/></svg>
               <span>Zoha</span>
             </div>
@@ -467,7 +445,7 @@
             <p class="contact-text reveal">I'm always interested in thoughtful projects, creative collaborations, and opportunities to build better digital experiences.</p>
 
             <a class="contact-email reveal" data-config="email" href="#contact">
-              <span data-config-text="email">zoha32337@gmail.com</span>
+              <span data-config-text="email">alizoha646@gmail.com</span>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
             </a>
 
@@ -476,6 +454,11 @@
               <li><a data-config="behance" href="#contact" target="_blank" rel="noopener noreferrer">Behance</a></li>
               <li><a data-config="dribbble" href="#contact" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
             </ul>
+
+            <p class="contact-location reveal">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              <span data-config-text="location">Gilgit, Pakistan</span>
+            </p>
           </div>
 
           <form class="contact-form reveal" id="contact-form" novalidate>
