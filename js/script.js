@@ -154,6 +154,126 @@ const PROJECTS = {
     ],
     caption: "Concept preview — landing page.",
   },
+  pulse: {
+    title: "Pulse Health Companion",
+    category: "Health App Design",
+    badge: "Design concept",
+    overview:
+      "Pulse is a health companion app concept that brings daily vitals, activity, medication and doctor appointments into one calm, reassuring view.",
+    challenge:
+      "Health data can feel clinical and overwhelming. The challenge was to present heart rate, activity and appointments in a way that feels supportive rather than alarming, and is easy to read at a glance.",
+    approach:
+      "I led with one key metric per card, used soft colours with a single accent for live data, and grouped related information (vitals, daily goals, care) so people always know where to look.",
+    features: [
+      "Live heart-rate card with a simple trend line",
+      "Daily steps and sleep with progress bars",
+      "Upcoming video consultation with one-tap join",
+      "Medication reminders and weekly goals",
+    ],
+    ux: [
+      "Large, legible numbers for quick reading",
+      "Calm colours and reassuring microcopy",
+      "Important actions, like joining a call, always one tap away",
+      "Clear separation between information and actions",
+    ],
+    caption: "Concept preview — home screen and reminders.",
+  },
+  wanderly: {
+    title: "Wanderly Travel App",
+    category: "Travel App Design",
+    badge: "Design concept",
+    overview:
+      "Wanderly is a travel app concept that helps people discover destinations and keep every trip detail, from inspiration to boarding pass, in one place.",
+    challenge:
+      "Planning a trip often means switching between inspiration, booking and ticket apps. The challenge was to design one flow that feels inspiring at the start and practical at the airport.",
+    approach:
+      "Destination pages lead with large, immersive imagery and quick facts, while tickets use a familiar boarding-pass layout where the most important details (gate, seat, boarding time) get the most visual weight.",
+    features: [
+      "Immersive destination pages with ratings and highlights",
+      "A clear starting price and booking button",
+      "Digital boarding pass with the key flight details",
+      "Saved trips and favourites",
+    ],
+    ux: [
+      "Hierarchy that moves naturally from inspiration to action",
+      "A familiar ticket layout that is easy to scan under pressure",
+      "High-contrast text over imagery",
+      "Booking always reachable with one thumb",
+    ],
+    caption: "Concept preview — destination page and boarding pass.",
+  },
+  hearth: {
+    title: "Hearth Smart Home",
+    category: "Smart Home Dashboard",
+    badge: "Design concept",
+    overview:
+      "Hearth is a smart home dashboard concept for tablets and desktops that lets a household control rooms, climate and devices from one clear screen.",
+    challenge:
+      "Smart home apps often bury simple tasks, like turning off the lights, under menus. The challenge was to make everyday controls instant while still showing useful details like temperature and energy use.",
+    approach:
+      "I organised the interface by room, gave climate control a large, touch-friendly dial, and turned each device into a simple tile with an obvious on/off switch.",
+    features: [
+      "Room-based navigation",
+      "Large thermostat dial with the current target",
+      "Device tiles with clear on/off states",
+      "Daily energy usage summary",
+    ],
+    ux: [
+      "Big touch targets suited to wall-mounted tablets",
+      "On/off state shown by position, colour and label together",
+      "The most-used controls placed first",
+      "A calm, low-glare palette for any time of day",
+    ],
+    caption: "Concept preview — living room control screen.",
+  },
+  basil: {
+    title: "Basil Food Ordering",
+    category: "Food Ordering App Design",
+    badge: "Design concept",
+    overview:
+      "Basil is a food ordering app concept focused on getting hungry people from browsing to checkout in as few steps as possible.",
+    challenge:
+      "Food apps compete with long menus and endless choice. The challenge was to make browsing feel appetising while keeping the path to ordering short and obvious.",
+    approach:
+      "Category chips and a short \"popular near you\" list cut down on choice, dish cards show only what matters (name, time, price), and a persistent cart bar keeps the next step always visible.",
+    features: [
+      "Quick category filters",
+      "Dish cards with price, delivery time and quick add",
+      "Persistent cart bar with a live total",
+      "Live delivery tracking after ordering",
+    ],
+    ux: [
+      "Appetising, image-led dish cards",
+      "Prices and times always visible, so there are no surprises",
+      "One-tap add to cart",
+      "Clear progress after ordering to reduce uncertainty",
+    ],
+    caption: "Concept preview — browse screen and delivery tracking.",
+  },
+  tempo: {
+    title: "Tempo Music Player",
+    category: "Music App Design",
+    badge: "Design concept",
+    overview:
+      "Tempo is a music streaming app concept with a bold, dark \"now playing\" experience that puts the music, and its artwork, at the centre.",
+    challenge:
+      "Music players need to look striking while staying effortless to control, often one-handed and in low light. The challenge was to balance expressive visuals with simple, reliable controls.",
+    approach:
+      "I used a dark interface so the artwork can glow, placed playback controls in a single thumb-friendly row with an oversized play button, and kept the queue just a glance away.",
+    features: [
+      "Immersive now-playing screen with large artwork",
+      "Progress bar with clear timestamps",
+      "Oversized play and pause control",
+      "Up-next queue within easy reach",
+    ],
+    ux: [
+      "A dark theme that is comfortable in low light",
+      "The primary control is the largest and easiest to hit",
+      "Strong contrast for text on a dark background",
+      "A familiar control order, so there is nothing to relearn",
+    ],
+    caption: "Concept preview — now playing and queue.",
+  },
 };
 
 /* ========================================================================== */
@@ -172,6 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initToTop();
   initWorkTabs();
+  initCarousel();
   initWordRotator();
   initPointerEffects();
 });
@@ -643,4 +764,43 @@ function initWorkTabs() {
     });
   });
   select(0, false);
+}
+
+/* Concepts slider: arrow buttons, counter and end states */
+function initCarousel() {
+  const track = document.getElementById("concepts-track");
+  if (!track) return;
+  const cards = [...track.children];
+  const count = document.querySelector(".carousel-count");
+  const [prev, next] = document.querySelectorAll(".carousel-btn");
+
+  const step = () => {
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    return cards[0].offsetWidth + gap;
+  };
+
+  const update = () => {
+    if (!track.offsetParent) return; // panel hidden
+    const s = step();
+    const first = Math.round(track.scrollLeft / s);
+    const visible = Math.max(1, Math.round(track.clientWidth / s));
+    const last = Math.min(first + visible, cards.length);
+    count.textContent = visible > 1 ? `${first + 1}–${last} / ${cards.length}` : `${first + 1} / ${cards.length}`;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  };
+
+  [prev, next].forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const visible = Math.max(1, Math.round(track.clientWidth / step()));
+      track.scrollBy({ left: Number(btn.dataset.dir) * step() * visible, behavior: prefersReducedMotion ? "auto" : "smooth" });
+    });
+  });
+
+  let ticking = false;
+  track.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+  }, { passive: true });
+  // Fires when the panel is shown (size goes from 0) and on any resize
+  new ResizeObserver(update).observe(track);
 }

@@ -160,7 +160,7 @@
 
         <div class="work-tabs reveal" role="tablist" aria-label="Project type">
           <button class="work-tab" type="button" role="tab" id="tab-featured" aria-selected="true" aria-controls="panel-featured">Featured <span>2</span></button>
-          <button class="work-tab" type="button" role="tab" id="tab-concepts" aria-selected="false" aria-controls="panel-concepts" tabindex="-1">Concepts <span>3</span></button>
+          <button class="work-tab" type="button" role="tab" id="tab-concepts" aria-selected="false" aria-controls="panel-concepts" tabindex="-1">Concepts <span>8</span></button>
         </div>
 
         <!-- Featured: Figma projects -->
@@ -219,10 +219,10 @@
 
         <!-- Concepts -->
         <div class="work-panel" id="panel-concepts" role="tabpanel" aria-labelledby="tab-concepts">
-        <div class="projects">
+        <div class="projects projects-carousel" id="concepts-track">
 
           <!-- Project 01 -->
-          <article class="project project-wide reveal" data-project="finora" data-cursor="View">
+          <article class="project reveal" data-project="finora" data-cursor="View">
             <div class="project-preview preview-finora" aria-hidden="true">
               <div class="mock-window pv-window">
                 <div class="window-bar"><i></i><i></i><i></i><span class="window-url">finora.app/dashboard</span></div>
@@ -356,9 +356,206 @@
               </button>
             </div>
           </article>
+
+          <article class="project reveal" data-project="pulse" data-cursor="View">
+            <div class="project-preview preview-pulse" aria-hidden="true">
+              <div class="mock-phone cx-phone pulse-phone">
+                <div class="phone-notch"></div>
+                <div class="phone-screen cx-screen">
+                  <div class="cx-top"><span><small>Good morning</small><b>Your health</b></span><i class="cx-avatar"></i></div>
+                  <div class="pl-heart">
+                    <div class="cx-row"><small>Heart rate</small><span class="pl-live">Live</span></div>
+                    <strong>72 <small>bpm</small></strong>
+                    <svg viewBox="0 0 120 30" preserveAspectRatio="none"><path d="M0 18 H34 L39 9 L45 27 L51 3 L57 22 L62 18 H120"/></svg>
+                  </div>
+                  <div class="pl-stats">
+                    <div><small>Steps</small><b>6,240</b><i style="--w:62%"></i></div>
+                    <div><small>Sleep</small><b>7h 20m</b><i style="--w:82%"></i></div>
+                  </div>
+                  <div class="pl-appt"><i class="pl-doc"></i><span><b>Video consult</b><small>Today · 4:30 PM</small></span><em>Join</em></div>
+                </div>
+              </div>
+              <div class="cx-float pulse-reminder"><i class="cx-check"></i><span><b>Vitamin D</b><small>Taken · 9:00 AM</small></span></div>
+              <div class="cx-float pulse-goal">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" class="g-track"/><circle cx="20" cy="20" r="16" class="g-fill"/></svg>
+                <span><b>4 of 5 days</b><small>Weekly goal</small></span>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">06</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Health App Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Pulse Health Companion</h3>
+                <p class="project-desc">A calm health app concept that brings vitals, daily goals, medication and doctor visits into one reassuring view.</p>
+              </div>
+              <button class="project-open" type="button" data-open="pulse">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="wanderly" data-cursor="View">
+            <div class="project-preview preview-wanderly" aria-hidden="true">
+              <div class="mock-phone cx-phone wander-phone">
+                <div class="phone-notch"></div>
+                <div class="phone-screen cx-screen wd-screen">
+                  <div class="wd-hero"><i class="wd-sun"></i><i class="wd-mtn wd-mtn-a"></i><i class="wd-mtn wd-mtn-b"></i><span class="wd-fav"></span></div>
+                  <div class="wd-body">
+                    <b class="wd-place">Kyoto, Japan</b>
+                    <small class="wd-rating">★ 4.9 · 2.1k reviews</small>
+                    <div class="wd-chips"><span>Temples</span><span>Food</span><span>Culture</span></div>
+                    <div class="cx-row wd-book"><span><small>From</small><b>$640</b></span><em>Book trip</em></div>
+                  </div>
+                </div>
+              </div>
+              <div class="cx-float wd-pass">
+                <div class="wd-pass-main">
+                  <small>Boarding pass</small>
+                  <div class="wd-route"><b>ISB</b><i class="wd-plane"></i><b>NRT</b></div>
+                  <div class="wd-meta"><span><small>Gate</small>B12</span><span><small>Seat</small>14A</span><span><small>Board</small>08:40</span></div>
+                </div>
+                <div class="wd-stub"><i class="wd-code"></i></div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">07</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Travel App Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Wanderly Travel App</h3>
+                <p class="project-desc">A travel app concept that takes people from destination inspiration to a clear, easy-to-scan boarding pass.</p>
+              </div>
+              <button class="project-open" type="button" data-open="wanderly">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="hearth" data-cursor="View">
+            <div class="project-preview preview-hearth" aria-hidden="true">
+              <div class="mock-window pv-window">
+                <div class="window-bar"><i></i><i></i><i></i><span class="window-url">hearth.home/living-room</span></div>
+                <div class="hm">
+                  <aside class="hm-side">
+                    <span class="hm-brand"><b></b>Hearth</span>
+                    <span class="hm-room is-active">Living room</span>
+                    <span class="hm-room">Bedroom</span>
+                    <span class="hm-room">Kitchen</span>
+                    <span class="hm-room">Office</span>
+                  </aside>
+                  <div class="hm-main">
+                    <div class="hm-head"><b>Living room</b><span class="hm-pill">4 devices on</span></div>
+                    <div class="hm-grid">
+                      <div class="hm-dial">
+                        <div class="hm-ring"><span><b>22°</b><small>Cooling</small></span></div>
+                        <div class="hm-dial-row"><i>−</i><small>Target 22°</small><i>+</i></div>
+                      </div>
+                      <div class="hm-tiles">
+                        <div class="hm-tile is-on"><i class="hm-ico"></i><b>Lights</b><small>80%</small><span class="hm-switch"></span></div>
+                        <div class="hm-tile is-on"><i class="hm-ico"></i><b>Air purifier</b><small>Auto</small><span class="hm-switch"></span></div>
+                        <div class="hm-tile"><i class="hm-ico"></i><b>Speaker</b><small>Off</small><span class="hm-switch"></span></div>
+                        <div class="hm-tile is-on"><i class="hm-ico"></i><b>Blinds</b><small>50%</small><span class="hm-switch"></span></div>
+                      </div>
+                    </div>
+                    <div class="hm-energy"><span><small>Today's energy</small><b>4.2 kWh</b></span><div class="hm-bars"><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:50%"></i><i style="--h:80%"></i><i style="--h:60%"></i><i style="--h:35%"></i><i style="--h:70%"></i></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">08</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Smart Home Dashboard</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Hearth Smart Home</h3>
+                <p class="project-desc">A smart home dashboard concept with room-based controls, a large climate dial and simple device tiles.</p>
+              </div>
+              <button class="project-open" type="button" data-open="hearth">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="basil" data-cursor="View">
+            <div class="project-preview preview-basil" aria-hidden="true">
+              <div class="mock-phone cx-phone basil-phone">
+                <div class="phone-notch"></div>
+                <div class="phone-screen cx-screen">
+                  <div class="cx-top"><span><small>Deliver to</small><b>Home ▾</b></span><i class="cx-avatar"></i></div>
+                  <div class="bs-search">Search dishes</div>
+                  <div class="bs-chips"><span class="is-active">Pizza</span><span>Sushi</span><span>Salad</span><span>Dessert</span></div>
+                  <b class="bs-title">Popular near you</b>
+                  <div class="bs-dish"><i class="bs-plate bs-pizza"></i><span><b>Margherita Pizza</b><small>Basil &amp; Co · 20 min</small><em>$12.90</em></span><i class="bs-add">+</i></div>
+                  <div class="bs-dish"><i class="bs-plate bs-bowl"></i><span><b>Salmon Poke Bowl</b><small>Ocean Kitchen · 25 min</small><em>$11.90</em></span><i class="bs-add">+</i></div>
+                  <div class="bs-cart"><span>2 items · $24.80</span><b>View cart →</b></div>
+                </div>
+              </div>
+              <div class="cx-float bs-track">
+                <b>On the way</b>
+                <small>Arrives in 12 min</small>
+                <div class="bs-steps"><i class="done"></i><i class="done"></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">09</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Food Ordering App Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Basil Food Ordering</h3>
+                <p class="project-desc">A food ordering app concept designed to get people from browsing to checkout in as few taps as possible.</p>
+              </div>
+              <button class="project-open" type="button" data-open="basil">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="project reveal" data-project="tempo" data-cursor="View">
+            <div class="project-preview preview-tempo" aria-hidden="true">
+              <div class="mock-phone cx-phone tempo-phone">
+                <div class="phone-notch"></div>
+                <div class="phone-screen cx-screen tp-screen">
+                  <div class="cx-row tp-top"><small>Now playing</small><small>•••</small></div>
+                  <div class="tp-art"><i class="tp-disc"></i></div>
+                  <b class="tp-song">Midnight Drive</b>
+                  <small class="tp-artist">Neon Avenue</small>
+                  <div class="tp-progress"><i></i></div>
+                  <div class="cx-row tp-times"><small>1:42</small><small>3:58</small></div>
+                  <div class="tp-controls"><i class="tp-prev"></i><span class="tp-play"><i></i></span><i class="tp-next"></i></div>
+                </div>
+              </div>
+              <div class="cx-float tp-queue">
+                <small>Up next</small>
+                <div class="tp-item"><i style="--a:#F472B6;--b:#7C93FF"></i><span><b>City Lights</b><small>Neon Avenue</small></span></div>
+                <div class="tp-item"><i style="--a:#A78BFA;--b:#F9A8D4"></i><span><b>Afterglow</b><small>Lumen</small></span></div>
+                <div class="tp-item"><i style="--a:#38BDF8;--b:#A78BFA"></i><span><b>Slow Motion</b><small>Velvet Hour</small></span></div>
+              </div>
+              <div class="cx-float tp-eq"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="project-meta">
+              <span class="project-num">10</span>
+              <div class="project-text">
+                <div class="project-tags"><span>Music App Design</span><span class="tag-concept">Design concept</span></div>
+                <h3 class="project-title">Tempo Music Player</h3>
+                <p class="project-desc">A bold, dark music app concept that lets the artwork glow while keeping playback controls effortless.</p>
+              </div>
+              <button class="project-open" type="button" data-open="tempo">
+                View Case Study
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+              </button>
+            </div>
+          </article>
         </div>
 
-        <p class="work-note reveal">Finora, Bloom and Studio Digital are self-initiated concepts created to explore interface and experience design.</p>
+        <div class="carousel-bar">
+          <p class="work-note">Concept projects are self-initiated explorations of interface and experience design.</p>
+          <div class="carousel-nav">
+            <span class="carousel-count" aria-live="polite">1–3 / 8</span>
+            <button class="carousel-btn" type="button" data-dir="-1" aria-label="Previous projects"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn" type="button" data-dir="1" aria-label="Next projects"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+          </div>
+        </div>
         </div>
       </div>
     </section>
