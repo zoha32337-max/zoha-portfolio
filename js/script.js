@@ -106,6 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectModal();
   initContactForm();
   initToTop();
+  initWordRotator();
+  initPointerEffects();
 });
 
 /* Contact links from CONFIG */
@@ -441,4 +443,91 @@ function initToTop() {
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
     document.querySelector(".wordmark").focus({ preventScroll: true });
   });
+}
+
+/* Cycle the highlighted word in the hero headline */
+function initWordRotator() {
+  const words = [...document.querySelectorAll(".rot-word")];
+  if (words.length < 2 || prefersReducedMotion) return;
+  let index = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    const current = words[index];
+    index = (index + 1) % words.length;
+    current.classList.remove("is-active");
+    current.classList.add("is-leaving");
+    words[index].classList.remove("is-leaving");
+    words[index].classList.add("is-active");
+    setTimeout(() => current.classList.remove("is-leaving"), 800);
+  }, 2800);
+}
+
+/* Desktop-only pointer effects: cursor ring, magnetic buttons, card tilt and light */
+function initPointerEffects() {
+  if (prefersReducedMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  // Cursor ring that eases toward the pointer
+  const ring = document.createElement("div");
+  ring.className = "cursor-ring is-hidden";
+  ring.setAttribute("aria-hidden", "true");
+  ring.innerHTML = "<span></span>";
+  document.body.appendChild(ring);
+  const label = ring.firstChild;
+  let x = 0, y = 0, rx = 0, ry = 0;
+
+  window.addEventListener("pointermove", (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    ring.classList.remove("is-hidden");
+    const labelled = e.target.closest("[data-cursor]");
+    const interactive = e.target.closest("a, button, input, textarea");
+    const text = labelled && labelled.dataset.cursor;
+    ring.classList.toggle("is-label", Boolean(text));
+    ring.classList.toggle("is-hover", Boolean(interactive) && !text);
+    if (text) label.textContent = text;
+  }, { passive: true });
+  document.addEventListener("pointerleave", () => ring.classList.add("is-hidden"));
+
+  const follow = () => {
+    rx += (x - rx) * 0.2;
+    ry += (y - ry) * 0.2;
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+    requestAnimationFrame(follow);
+  };
+  follow();
+
+  // Magnetic buttons
+  document.querySelectorAll(".btn").forEach((btn) => {
+    btn.addEventListener("pointermove", (e) => {
+      const r = btn.getBoundingClientRect();
+      const mx = (e.clientX - r.left - r.width / 2) * 0.22;
+      const my = (e.clientY - r.top - r.height / 2) * 0.3;
+      btn.style.translate = `${mx.toFixed(1)}px ${my.toFixed(1)}px`;
+    });
+    btn.addEventListener("pointerleave", () => { btn.style.translate = ""; });
+  });
+
+  // Project cards tilt and catch the light; contact panel catches the light
+  const setLight = (el, e) => {
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    el.style.setProperty("--gx", `${(px * 100).toFixed(1)}%`);
+    el.style.setProperty("--gy", `${(py * 100).toFixed(1)}%`);
+    return [px, py];
+  };
+  document.querySelectorAll(".projects .project-preview").forEach((card) => {
+    const project = card.closest(".project");
+    project.addEventListener("pointermove", (e) => {
+      const [px, py] = setLight(card, e);
+      card.style.setProperty("--ry", `${((px - 0.5) * 8).toFixed(2)}deg`);
+      card.style.setProperty("--rx", `${((0.5 - py) * 6).toFixed(2)}deg`);
+    });
+    project.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+    });
+  });
+  const panel = document.querySelector(".contact-panel");
+  if (panel) panel.addEventListener("pointermove", (e) => setLight(panel, e));
 }
