@@ -8,6 +8,7 @@
    -------------------------------------------------------------------------- */
 const CONFIG = {
   email: "alizoha646@gmail.com",
+  whatsapp: "923109124998",                        // country code + number, digits only
   linkedin: "https://www.linkedin.com/in/your-profile",
   behance: "https://www.behance.net/your-profile",
   dribbble: "",                                     // empty = hidden
@@ -116,8 +117,10 @@ function applyConfig() {
       (el.closest("li") || el).remove();
       return;
     }
-    el.href = key === "email" ? `mailto:${value}` : value;
-    if (key !== "email") el.setAttribute("aria-label", `${el.textContent.trim()} profile (opens in a new tab)`);
+    if (key === "email") el.href = `mailto:${value}`;
+    else if (key === "whatsapp") el.href = `https://wa.me/${value}?text=${encodeURIComponent("Hi Zoha! I saw your portfolio and would like to talk.")}`;
+    else el.href = value;
+    if (key !== "email") el.setAttribute("aria-label", key === "whatsapp" ? "Chat on WhatsApp (opens in a new tab)" : `${el.textContent.trim()} profile (opens in a new tab)`);
   });
   document.querySelectorAll("[data-config-text]").forEach((el) => {
     const value = CONFIG[el.dataset.configText];
