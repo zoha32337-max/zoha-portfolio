@@ -9,7 +9,7 @@
 const CONFIG = {
   email: "alizoha646@gmail.com",
   whatsapp: "923109124998",                        // country code + number, digits only
-  linkedin: "https://www.linkedin.com/in/your-profile",
+  linkedin: "https://www.linkedin.com/in/zoha-aly-a785473ba",
   behance: "https://www.behance.net/your-profile",
   dribbble: "",                                     // empty = hidden
   location: "Gilgit, Pakistan",
@@ -133,12 +133,21 @@ function setYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* Sticky header background once the page is scrolled */
+/* Sticky header background + scroll progress bar */
 function initHeader() {
   const header = document.getElementById("site-header");
-  const update = () => header.classList.toggle("is-scrolled", window.scrollY > 12);
+  let ticking = false;
+  const update = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+    header.style.setProperty("--progress", max > 0 ? (window.scrollY / max).toFixed(4) : 0);
+    ticking = false;
+  };
   update();
-  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener("resize", update);
 }
 
 /* Mobile menu: open/close, Escape, focus handling */
@@ -185,10 +194,21 @@ function initMobileMenu() {
   });
 }
 
-/* Highlight the nav link for the section in view */
+/* Highlight the nav link for the section in view, with a sliding pill */
 function initActiveLinks() {
+  const list = document.querySelector(".nav-links");
   const links = document.querySelectorAll(".nav-link");
   const map = new Map();
+  let current = null;
+
+  const moveIndicator = () => {
+    if (!current || !list.offsetParent) return;
+    list.style.setProperty("--ind-x", `${current.offsetLeft}px`);
+    list.style.setProperty("--ind-w", `${current.offsetWidth}px`);
+    list.style.setProperty("--ind-o", "1");
+  };
+  list.classList.add("has-indicator");
+  window.addEventListener("resize", moveIndicator);
   links.forEach((link) => {
     const section = document.querySelector(link.getAttribute("href"));
     if (section) map.set(section, link);
@@ -202,6 +222,8 @@ function initActiveLinks() {
         const active = map.get(entry.target);
         active.classList.add("is-active");
         active.setAttribute("aria-current", "true");
+        current = active;
+        moveIndicator();
       });
     },
     { rootMargin: "-45% 0px -50% 0px" }
@@ -218,18 +240,29 @@ function initReveal() {
     return;
   }
 
+  // Titles start fully clipped, which the observer treats as never visible,
+  // so they are watched through their parent block instead.
+  const watched = new Map();
+  targets.forEach((el) => {
+    const trigger = el.matches(".section-title, .contact-title") ? el.parentElement : el;
+    if (!watched.has(trigger)) watched.set(trigger, []);
+    watched.get(trigger).push(el);
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
       const visible = entries.filter((e) => e.isIntersecting);
       visible.forEach((entry, i) => {
-        entry.target.style.setProperty("--stagger", `${Math.min(i, 5) * 0.08}s`);
-        entry.target.classList.add("is-visible");
+        watched.get(entry.target).forEach((el) => {
+          el.style.setProperty("--stagger", `${Math.min(i, 5) * 0.08}s`);
+          el.classList.add("is-visible");
+        });
         observer.unobserve(entry.target);
       });
     },
     { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
   );
-  targets.forEach((el) => observer.observe(el));
+  watched.forEach((_, trigger) => observer.observe(trigger));
 }
 
 /* Subtle pointer-driven depth on hero mockups (desktop pointers only) */
