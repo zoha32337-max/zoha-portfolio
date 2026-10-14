@@ -20,9 +20,72 @@ const CONFIG = {
    Keys match data-project / data-open attributes in index.html.
    -------------------------------------------------------------------------- */
 const PROJECTS = {
+  campushq: {
+    title: "CampusHQ Student App",
+    category: "Mobile App Design",
+    badge: "Figma · 5 screens",
+    overview:
+      "CampusHQ is a mobile app design that brings a student's whole campus life into one place: classes, schedule, assignments, grades and campus services.",
+    challenge:
+      "Students juggle separate portals for timetables, coursework, grades and campus services. The challenge was to bring all of it into one app that answers \"what do I need to do next?\" at a glance, without overwhelming the screen.",
+    approach:
+      "I designed five connected screens around a simple bottom navigation: Home, Courses, Schedule, Tasks and Hub. Home leads with the next class and today's agenda, while a consistent card system, colour-coded course labels and clear status chips keep dense academic information easy to scan.",
+    features: [
+      "Home dashboard with the next class, today's agenda and upcoming deadlines",
+      "Course cards showing grade, syllabus progress and attendance",
+      "Weekly schedule with day and week views",
+      "Task list with priority levels, filters and progress tracking",
+      "Student Hub for study resources, profile, digital ID and campus help",
+    ],
+    ux: [
+      "The most time-sensitive information comes first on every screen",
+      "Colour-coded courses make each subject recognisable at a glance",
+      "Labels and icons back up colour, so status never relies on colour alone",
+      "Thumb-friendly bottom navigation and generous tap targets",
+    ],
+    layout: "phone",
+    screens: [
+      { src: "assets/images/projects/campushq/home.webp", w: 414, h: 1648, label: "Home" },
+      { src: "assets/images/projects/campushq/courses.webp", w: 414, h: 1498, label: "Courses" },
+      { src: "assets/images/projects/campushq/schedule.webp", w: 414, h: 1142, label: "Schedule" },
+      { src: "assets/images/projects/campushq/tasks.webp", w: 414, h: 1113, label: "Tasks" },
+      { src: "assets/images/projects/campushq/hub.webp", w: 414, h: 1738, label: "Student Hub" },
+    ],
+  },
+  atn: {
+    title: "ATN Company Dashboard",
+    category: "Dashboard UI/UX Design",
+    badge: "Figma · 4 screens",
+    overview:
+      "A web dashboard design for ATN (Alpine Technology Network), where an administrator manages the company's public profile, services and portfolio of projects from one place.",
+    challenge:
+      "Company information is usually spread across many tools. The challenge was to give administrators one clear place to keep the profile, services and project case studies up to date, while handling a lot of detailed, technical content.",
+    approach:
+      "I built a consistent admin layout: a fixed sidebar for navigation, a top bar for search and quick actions, and content organised into clear cards. Every screen follows the same structure, so once one page is learned, the rest feel familiar.",
+    features: [
+      "Executive overview with key stats, active projects and an activity log",
+      "Company profile editor with tabs for identity, branding, contacts and history",
+      "Services catalogue with status toggles, feature tags and tech stacks",
+      "Projects and portfolio hub with filters, grid and table views and case study cards",
+    ],
+    ux: [
+      "Clear visual hierarchy for dense, data-heavy screens",
+      "The same sidebar and top bar on every page for easy orientation",
+      "Status shown with labels and icons, not colour alone",
+      "Primary actions like Save and Add placed where the eye expects them",
+    ],
+    layout: "desktop",
+    screens: [
+      { src: "assets/images/projects/atn/overview.webp", w: 1296, h: 1637, label: "Dashboard overview" },
+      { src: "assets/images/projects/atn/profile.webp", w: 1296, h: 1812, label: "Company profile" },
+      { src: "assets/images/projects/atn/services.webp", w: 1296, h: 1859, label: "Services" },
+      { src: "assets/images/projects/atn/projects.webp", w: 1296, h: 1789, label: "Projects & portfolio" },
+    ],
+  },
   finora: {
     title: "Finora Dashboard",
     category: "Dashboard UI/UX Design",
+    badge: "Design concept",
     overview:
       "Finora is a design concept for a personal finance dashboard. The goal was to give people a calm, at-a-glance view of their money — balances, cash flow, and recent activity — without the visual noise common in financial tools.",
     challenge:
@@ -46,6 +109,7 @@ const PROJECTS = {
   bloom: {
     title: "Bloom Mobile App",
     category: "Mobile App Design",
+    badge: "Design concept",
     overview:
       "Bloom is a mobile app concept that helps people organise daily routines and build better habits through small, achievable steps and gentle visual feedback.",
     challenge:
@@ -69,6 +133,7 @@ const PROJECTS = {
   studio: {
     title: "Studio Digital Website",
     category: "Website UI/UX Design",
+    badge: "Design concept",
     overview:
       "Studio Digital is a website concept for a creative studio. It explores how bold typography and an editorial layout can communicate a studio's personality while guiding visitors toward its work and contact.",
     challenge:
@@ -106,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectModal();
   initContactForm();
   initToTop();
+  initWorkTabs();
   initWordRotator();
   initPointerEffects();
 });
@@ -300,6 +366,7 @@ function initProjectModal() {
   const body = document.getElementById("modal-body");
   const titleEl = document.getElementById("modal-title");
   const categoryEl = document.getElementById("modal-category");
+  const badgeEl = document.getElementById("modal-badge");
   if (!modal || typeof modal.showModal !== "function") return;
 
   let lastTrigger = null;
@@ -313,6 +380,26 @@ function initProjectModal() {
 
     titleEl.textContent = data.title;
     categoryEl.textContent = data.category;
+    badgeEl.textContent = data.badge;
+    badgeEl.className = data.screens ? "tag-figma" : "tag-concept";
+
+    const finalBlock = data.screens
+      ? `<section class="case-block">
+          <h3>Screens</h3>
+          <div class="screens screens-${data.layout}">
+            ${data.screens.map((s) => `
+              <figure class="screen">
+                <img src="${s.src}" width="${s.w}" height="${s.h}" loading="lazy" decoding="async" alt="${data.title}: ${s.label} screen">
+                <figcaption>${s.label}</figcaption>
+              </figure>`).join("")}
+          </div>
+        </section>`
+      : `<section class="case-block case-preview">
+          <h3>Final concept preview</h3>
+          <div class="case-preview-slot"></div>
+          <p class="case-caption">${data.caption}</p>
+        </section>`;
+
     body.innerHTML = `
       <p class="case-overview">${data.overview}</p>
       <div class="case-grid">
@@ -321,15 +408,12 @@ function initProjectModal() {
         <section class="case-block"><h3>Key features</h3><ul class="case-list">${listItems(data.features)}</ul></section>
         <section class="case-block"><h3>User experience considerations</h3><ul class="case-list">${listItems(data.ux)}</ul></section>
       </div>
-      <section class="case-block case-preview">
-        <h3>Final concept preview</h3>
-        <div class="case-preview-slot"></div>
-        <p class="case-caption">${data.caption}</p>
-      </section>`;
+      ${finalBlock}`;
 
-    // Reuse the card's handcrafted preview so both views stay in sync
+    // Concepts reuse the card's handcrafted preview so both views stay in sync
+    const slot = body.querySelector(".case-preview-slot");
     const preview = document.querySelector(`[data-project="${key}"] .project-preview`);
-    if (preview) body.querySelector(".case-preview-slot").appendChild(preview.cloneNode(true));
+    if (slot && preview) slot.appendChild(preview.cloneNode(true));
 
     modal.classList.remove("is-closing");
     modal.showModal();
@@ -530,4 +614,33 @@ function initPointerEffects() {
   });
   const panel = document.querySelector(".contact-panel");
   if (panel) panel.addEventListener("pointermove", (e) => setLight(panel, e));
+}
+
+/* Featured / Concepts tabs in the Work section */
+function initWorkTabs() {
+  const tabs = [...document.querySelectorAll(".work-tab")];
+  if (!tabs.length) return;
+  const panels = tabs.map((tab) => document.getElementById(tab.getAttribute("aria-controls")));
+
+  const select = (index, focus) => {
+    tabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.setAttribute("aria-selected", String(active));
+      tab.tabIndex = active ? 0 : -1;
+      panels[i].hidden = !active;
+      panels[i].classList.toggle("is-entering", active);
+    });
+    if (focus) tabs[index].focus();
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener("click", () => select(i, false));
+    tab.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      const next = (i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+      select(next, true);
+    });
+  });
+  select(0, false);
 }

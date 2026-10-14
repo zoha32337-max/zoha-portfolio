@@ -158,6 +158,67 @@
           <p class="section-intro reveal">A selection of digital experiences focused on clarity, usability, and thoughtful design.</p>
         </header>
 
+        <div class="work-tabs reveal" role="tablist" aria-label="Project type">
+          <button class="work-tab" type="button" role="tab" id="tab-featured" aria-selected="true" aria-controls="panel-featured">Featured <span>2</span></button>
+          <button class="work-tab" type="button" role="tab" id="tab-concepts" aria-selected="false" aria-controls="panel-concepts" tabindex="-1">Concepts <span>3</span></button>
+        </div>
+
+        <!-- Featured: Figma projects -->
+        <div class="work-panel" id="panel-featured" role="tabpanel" aria-labelledby="tab-featured">
+          <div class="projects projects-featured">
+
+            <article class="project reveal" data-project="campushq" data-cursor="View">
+              <div class="project-preview preview-campus" aria-hidden="true">
+                <div class="shot-phones">
+                  <figure class="shot-phone"><img src="assets/images/projects/campushq/courses-thumb.webp" width="414" height="860" alt="" loading="lazy" decoding="async"></figure>
+                  <figure class="shot-phone is-main"><img src="assets/images/projects/campushq/home-thumb.webp" width="414" height="860" alt="" loading="lazy" decoding="async"></figure>
+                  <figure class="shot-phone"><img src="assets/images/projects/campushq/schedule-thumb.webp" width="414" height="860" alt="" loading="lazy" decoding="async"></figure>
+                </div>
+                <img class="app-icon" src="assets/images/projects/campushq/icon.webp" width="160" height="160" alt="" loading="lazy">
+              </div>
+              <div class="project-meta">
+                <span class="project-num">01</span>
+                <div class="project-text">
+                  <div class="project-tags"><span>Mobile App Design</span><span class="tag-figma">Figma · 5 screens</span></div>
+                  <h3 class="project-title">CampusHQ Student App</h3>
+                  <p class="project-desc">A mobile app that brings classes, schedules, assignments and campus services together in one calm, easy-to-scan experience.</p>
+                </div>
+                <button class="project-open" type="button" data-open="campushq">
+                  View Case Study
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                </button>
+              </div>
+            </article>
+
+            <article class="project reveal" data-project="atn" data-cursor="View">
+              <div class="project-preview preview-atn" aria-hidden="true">
+                <div class="mock-window shot-window shot-back">
+                  <div class="window-bar"><i></i><i></i><i></i><span class="window-url">atn / projects</span></div>
+                  <img src="assets/images/projects/atn/projects-thumb.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+                </div>
+                <div class="mock-window shot-window shot-front">
+                  <div class="window-bar"><i></i><i></i><i></i><span class="window-url">atn / dashboard</span></div>
+                  <img src="assets/images/projects/atn/overview-thumb.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div class="project-meta">
+                <span class="project-num">02</span>
+                <div class="project-text">
+                  <div class="project-tags"><span>Dashboard UI/UX Design</span><span class="tag-figma">Figma · 4 screens</span></div>
+                  <h3 class="project-title">ATN Company Dashboard</h3>
+                  <p class="project-desc">An admin dashboard for managing a company's profile, services and project portfolio, designed to keep dense information clear.</p>
+                </div>
+                <button class="project-open" type="button" data-open="atn">
+                  View Case Study
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Concepts -->
+        <div class="work-panel" id="panel-concepts" role="tabpanel" aria-labelledby="tab-concepts">
         <div class="projects">
 
           <!-- Project 01 -->
@@ -205,7 +266,7 @@
               </div>
             </div>
             <div class="project-meta">
-              <span class="project-num">01</span>
+              <span class="project-num">03</span>
               <div class="project-text">
                 <div class="project-tags"><span>Dashboard UI/UX Design</span><span class="tag-concept">Design concept</span></div>
                 <h3 class="project-title">Finora Dashboard</h3>
@@ -250,7 +311,7 @@
               </div>
             </div>
             <div class="project-meta">
-              <span class="project-num">02</span>
+              <span class="project-num">04</span>
               <div class="project-text">
                 <div class="project-tags"><span>Mobile App Design</span><span class="tag-concept">Design concept</span></div>
                 <h3 class="project-title">Bloom Mobile App</h3>
@@ -283,7 +344,7 @@
               </div>
             </div>
             <div class="project-meta">
-              <span class="project-num">03</span>
+              <span class="project-num">05</span>
               <div class="project-text">
                 <div class="project-tags"><span>Website UI/UX Design</span><span class="tag-concept">Design concept</span></div>
                 <h3 class="project-title">Studio Digital Website</h3>
@@ -297,7 +358,8 @@
           </article>
         </div>
 
-        <p class="work-note reveal">All projects shown are self-initiated design concepts created to explore interface and experience design.</p>
+        <p class="work-note reveal">Finora, Bloom and Studio Digital are self-initiated concepts created to explore interface and experience design.</p>
+        </div>
       </div>
     </section>
 
@@ -520,7 +582,7 @@
     <div class="modal-inner">
       <header class="modal-head">
         <div>
-          <div class="project-tags"><span id="modal-category"></span><span class="tag-concept">Design concept</span></div>
+          <div class="project-tags"><span id="modal-category"></span><span id="modal-badge"></span></div>
           <h2 class="modal-title" id="modal-title"></h2>
         </div>
         <button class="modal-close" type="button" aria-label="Close case study">

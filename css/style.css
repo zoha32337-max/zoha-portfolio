@@ -904,6 +904,102 @@ body::after {
   border-top: 1px solid var(--line);
 }
 
+/* Featured / Concepts tabs */
+.work-tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  margin-bottom: clamp(1.5rem, 3vh, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.work-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: color 0.25s, background-color 0.3s var(--ease);
+}
+.work-tab span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+.work-tab:hover { color: var(--ink); }
+.work-tab[aria-selected="true"] { background: var(--accent-strong); color: var(--on-accent); }
+.work-tab[aria-selected="true"] span { background: rgba(11, 18, 38, 0.18); color: var(--on-accent); }
+.work-panel.is-entering { animation: panel-in 0.6s var(--ease); }
+@keyframes panel-in { from { opacity: 0; transform: translateY(16px); } }
+
+.project-tags .tag-figma { border-color: var(--accent); color: var(--accent); }
+
+/* Preview: CampusHQ (real screens in phone frames) */
+.preview-campus {
+  background:
+    radial-gradient(70% 80% at 50% 0%, rgba(124, 147, 255, 0.35), transparent 70%),
+    #1A1C52;
+  padding: 0;
+}
+.shot-phones {
+  position: absolute;
+  inset: 9% 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3%;
+}
+.shot-phone {
+  width: 22%;
+  margin: 0;
+  padding: 1.1cqi;
+  border-radius: 4.5cqi;
+  background: #0B1226;
+  box-shadow: var(--shadow-lg);
+  translate: 0 12%;
+}
+.shot-phone.is-main { width: 26%; translate: none; z-index: 1; }
+.shot-phone img {
+  width: 100%;
+  height: auto;
+  border-radius: 3.6cqi;
+  display: block;
+}
+.app-icon {
+  position: absolute;
+  left: 3.5%;
+  top: 6%;
+  width: 7.5%;
+  max-width: 56px;
+  height: auto;
+  border-radius: 24%;
+  box-shadow: 0 12px 30px -8px rgba(79, 70, 229, 0.7);
+}
+
+/* Preview: ATN (real screens in browser windows) */
+.preview-atn {
+  background:
+    radial-gradient(70% 80% at 100% 0%, rgba(244, 114, 182, 0.18), transparent 65%),
+    #0F2042;
+  padding: 0;
+}
+.shot-window { position: absolute; border-radius: 10px; }
+.shot-window img { width: 100%; height: auto; display: block; }
+.shot-window .window-bar { padding: 0.45rem 0.65rem; }
+.shot-back { top: 7%; right: 5%; width: 62%; opacity: 0.55; }
+.shot-front { top: 20%; left: 6%; width: 72%; }
+
 /* Preview: Finora */
 .preview-finora { background: #16224D; }
 .preview-finora .pv-window { width: 100%; max-width: 900px; }
@@ -1501,6 +1597,29 @@ body::after {
   background: var(--accent-strong);
 }
 .case-preview .project-preview { aspect-ratio: auto; min-height: 260px; }
+
+/* Screen gallery in case studies */
+.screens { display: grid; gap: 1.25rem; }
+.screens-phone {
+  grid-auto-flow: column;
+  grid-auto-columns: min(240px, 72%);
+  align-items: start;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.75rem;
+  overscroll-behavior-x: contain;
+}
+.screen { margin: 0; scroll-snap-align: start; }
+.screen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+.screens-phone .screen img { border-radius: 22px; }
+.screen figcaption { margin-top: 0.6rem; font-size: var(--fs-sm); color: var(--muted); }
 .case-preview .project-preview > * { transform: none !important; }
 .case-caption { margin-top: 0.75rem; font-size: var(--fs-sm); color: var(--muted); }
 
@@ -1648,6 +1767,8 @@ body::after {
 }
 
 @media (min-width: 768px) {
+  .projects-featured { grid-template-columns: 1fr 1fr; }
+  .projects-featured .project-preview { aspect-ratio: 16 / 10; }
   .section-head { grid-template-columns: 1.4fr 1fr; }
   .section-intro { justify-self: end; }
 
@@ -1782,4 +1903,17 @@ body::after {
   .socials { margin-top: 1rem; }
   .contact-location { margin-top: 0.9rem; }
   .closing-line { margin-top: 1.25rem; }
+}
+
+/* Featured projects: two wide cards (after the one-screen rules so they win) */
+@media (min-width: 1024px) and (min-height: 640px) {
+  .projects.projects-featured { grid-template-columns: repeat(2, 1fr); }
+  #panel-concepts .project-preview { aspect-ratio: 4 / 2.95; }
+  .projects-featured .project-preview { aspect-ratio: 16 / 8.6; padding: 0; }
+  .work-tabs { margin-bottom: 1.5rem; }
+}
+@media (min-width: 1024px) and (min-height: 640px) and (max-height: 860px) {
+  .projects-featured .project-preview { aspect-ratio: 16 / 7.4; }
+  #panel-concepts .project-preview { aspect-ratio: 4 / 2.45; }
+  .work-tabs { margin-bottom: 1rem; }
 }
